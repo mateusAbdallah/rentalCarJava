@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
@@ -44,13 +46,23 @@ public class Main {
 							createTruck(vehiclesCreated, "Truck");
 							break;							
 					}
-					
-					
-					
-					
-					//System.out.println("Successfully written " + (i + 1) + " vehicles");
 				}
-			}		
+			}
+			if(selection == 2) {
+				String fileName;
+				System.out.println("Please enter file name:");
+				fileName = input.nextLine();
+				if(fileName == "NewVehicle.txt") {
+					try {
+						BufferedReader reader = new BufferedReader(new FileReader("NewVehicle.txt"));
+						reader.readLine();
+					}
+					catch(IOException e) {
+						e.printStackTrace();
+					}
+					
+				}
+			}
 	}
 	
 	public static void createCar(int quantity, String vehicle) {
