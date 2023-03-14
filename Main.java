@@ -52,10 +52,14 @@ public class Main {
 				String fileName;
 				System.out.println("Please enter file name:");
 				fileName = input.nextLine();
-				if(fileName == "NewVehicle.txt") {
+				fileName = input.nextLine();
+				if(fileName.equals("NewVehicles.txt")) {
 					try {
-						BufferedReader reader = new BufferedReader(new FileReader("NewVehicle.txt"));
-						reader.readLine();
+						BufferedReader reader = new BufferedReader(new FileReader("NewVehicles.txt"));
+						String line;
+						while((line = reader.readLine()) != null)
+							System.out.println(line);						
+						reader.close();
 					}
 					catch(IOException e) {
 						e.printStackTrace();
