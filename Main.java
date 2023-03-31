@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,25 +11,99 @@ import java.util.stream.Stream;
 public class Main {
 
 	public static void main(String[] args) {
-			
-		writeVehicles();
 		
-	}
-	
-	public static void writeVehicles() {	
+		Scanner input = new Scanner(System.in);
 		
-			Scanner input = new Scanner(System.in);
+		int option;
+		int vehiclesCreated;
+		int selection = 0;
+		String fileName = null;
+		
+		Vehicle[] vehicles = null; 
+					
+		System.out.println("Please choose from the following options:");
+		System.out.println("1 - Enter Vehicles");
+		System.out.println("2 - Load Vehicles");			
+		option = input.nextInt();
+		
+		boolean success = false;
+		
+		while(!success) {
 			
-			int options, vehiclesCreated;
-			int selection = 0;
-						
-			System.out.println("Please choose from the following options:");
-			System.out.println("1 - Enter Vehicles \n2 - Load Vehicles");			
-			selection = input.nextInt();
-			while(selection < 1 || selection > 2) {
-				System.out.println("Please enter 1 or 2");
-				selection = input.nextInt();				
+			if(option == 1 || option == 2) {
+				success = true;
 			}
+			else {
+				System.out.println("Please enter 1 or 2");
+				option = input.nextInt();
+				
+			}
+				
+							
+		}
+		
+		try {
+			if (option == 1) {
+				System.out.println("How many vehicles do you want to create?");
+				vehiclesCreated = input.nextInt();
+				while(vehiclesCreated < 1) {
+					System.out.println("Please enter a valid number greater than 0:");
+					vehiclesCreated = input.nextInt();
+					
+				}
+				
+				vehicles = new Vehicle[vehiclesCreated];
+				for(int i = 0; i < vehiclesCreated; i++) {
+					Vehicle vehicle = inputVehicle();
+					vehicles[i] = vehicle;
+				}
+				writeToFile("NewVehicles.txt", vehicles);
+				System.out.println("Successfully written " + vehicles.length + " vehicles.");
+				selection = availableVehicles(vehicles);
+
+			}
+			else if(option == 2) {
+				boolean fileExistis = false;
+				
+				try {
+					while(!fileExistis) {
+						System.out.println("Please enter the file name: ");
+						fileName = input.nextLine();
+						fileName = input.nextLine();
+						File file = new File("src\\" + fileName);
+						
+						if(file.exists() && file.isFile()) {
+							fileExistis = true;
+						} else {
+							System.out.println("File does not exist. Please enter the correct file name");
+						}
+					}
+					BufferedReader reader = new BufferedReader(new FileReader("src\\" + fileName));
+					String line = reader.readLine();
+					while(line != null) {
+						line = reader.readLine();
+					}
+					reader.close();
+				} catch (IOException e) {
+					System.out.println(e.getMessage());
+				}
+				
+				vehicles = readFromFile(fileName);
+				selection = availableVehicles(readFromFile(fileName));
+			}
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		
+		
+		
+			
+				
+			
+			
+			/*
 			
 			if(selection == 1) {
 				System.out.println("How many vehicles do you want to create?");
@@ -65,10 +140,16 @@ public class Main {
 					}
 					
 				}
-			}
+			}*/
 	}
 	
-	public static void createCar(int quantity, String vehicle) {
+	
+	
+	public static void createCar() {
+		
+		
+		System.out.println("How many vehicles do you want to create?");
+		vehi
 		
 		try {
 			
