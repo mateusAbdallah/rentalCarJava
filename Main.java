@@ -19,9 +19,8 @@ public class Main {
 		
 			Scanner input = new Scanner(System.in);
 			
-			int options;
-			int vehiclesCreated;
-			int selection;
+			int options, vehiclesCreated;
+			int selection = 0;
 						
 			System.out.println("Please choose from the following options:");
 			System.out.println("1 - Enter Vehicles \n2 - Load Vehicles");			
@@ -73,7 +72,7 @@ public class Main {
 		
 		try {
 			
-			BufferedWriter writer = new BufferedWriter(new FileWriter("NewVehicles.txt"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("NewVehicles.txt", true));
 			
 			
 			Scanner input = new Scanner(System.in);
@@ -142,7 +141,7 @@ public class Main {
 	public static void createTruck(int quantity, String vehicle) {
 		
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter("NewVehicles.txt"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("NewVehicles.txt", true));
 			
 			Scanner input = new Scanner(System.in);
 			String model;
