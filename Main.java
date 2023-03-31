@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -11,6 +12,30 @@ import java.util.stream.Stream;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		int selection = 0;
+		Vehicle vehicles[] = null;
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please choose from the following options:");
+		System.out.println("1 - Enter Vehicles:");
+		System.out.println("2 - Load Vehicles:");
+		selection = input.nextInt();
+		
+		if(selection == 1) {
+			vehicles = createVehicles();
+			storeVehicles(vehicles, "NewVehicles.txt");
+		}
+		else {
+			System.out.println("Please enter file name");
+			input.nextLine();
+			String fileName = input.nextLine();
+			vehicles = loadVehicles(fileName);
+		}
+		
+		
+		
+		/*
 		
 		Scanner input = new Scanner(System.in);
 		
@@ -95,6 +120,15 @@ public class Main {
 			System.out.println(e);
 		}
 		
+		System.out.println("Please enter the pick up date:");
+		LocalDate pickupDate = inputDate();
+		
+		System.out.println("Enter the drop off date:");
+		LocalDate dropOffDate = inputDate();
+		
+		Rental rental = new Rental(vehicles[selection - 1], pickupDate, dropOffDate);
+		System.out.println(rental.getDescription());
+		
 		
 		
 		
@@ -103,7 +137,7 @@ public class Main {
 				
 			
 			
-			/*
+			
 			
 			if(selection == 1) {
 				System.out.println("How many vehicles do you want to create?");
@@ -140,7 +174,9 @@ public class Main {
 					}
 					
 				}
-			}*/
+			}
+		
+		*/
 	}
 	
 	

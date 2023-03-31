@@ -1,7 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+
 
 public class Car extends Vehicle {
 	
@@ -12,6 +9,14 @@ public class Car extends Vehicle {
 	
 	public Car(String model, double rate, Size size) {
 		super(model, rate);
+		this.size = size;
+	}
+	
+	public Size getSize() {
+		return size;
+	}
+	
+	public void setSize(Size size) {
 		this.size = size;
 	}
 	

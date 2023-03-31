@@ -12,6 +12,10 @@ public class Truck extends Vehicle {
 	public String getDescription() {
 		return "TRUCK with cargo capacity: " + cargoCapacity + "kg. " + super.getDescription();
 	}
+	
+	public void setCargoCapacity(double cargoCapacity) {
+		this.cargoCapacity = cargoCapacity;
+	}
 
 		
 }
