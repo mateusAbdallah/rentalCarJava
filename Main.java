@@ -71,6 +71,11 @@ public class Main {
 		
 		Vehicle[] vehicles = null;
 		
+		Scanner input = new Scanner(System.in);
+		System.out.println("How many vehicles do you want to create?");
+		int numberVehicles = input.nextInt();
+		
+		vehicles = new Vehicle[numberVehicles];
 	}
 	
 	public static void createTruck(int quantity, String vehicle) {
