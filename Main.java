@@ -33,6 +33,8 @@ public class Main {
 			vehicles = loadVehicles(fileName);
 		}
 		
+		System.out.println("Available vehicles:");
+		
 		
 		
 		/*
