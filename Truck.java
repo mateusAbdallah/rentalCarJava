@@ -16,6 +16,10 @@ public class Truck extends Vehicle {
 	public void setCargoCapacity(double cargoCapacity) {
 		this.cargoCapacity = cargoCapacity;
 	}
+	
+	public double getCargoCapacity() {
+		return cargoCapacity;
+	}
 
 		
 }
