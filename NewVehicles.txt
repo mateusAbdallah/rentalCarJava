@@ -1,0 +1,5 @@
+1
+Truck
+ford range
+99.99
+4000.0

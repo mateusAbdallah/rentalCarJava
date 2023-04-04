@@ -1,3 +1,5 @@
+import static java.nio.file.StandardOpenOption.CREATE;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -37,6 +39,7 @@ public class Main {
 		if(selection == 1) {
 			vehicles = createVehicles();
 			storeVehicles(vehicles, "NewVehicles.txt");
+			
 		}
 		else {
 			System.out.println("Please enter file name");
@@ -125,7 +128,7 @@ public class Main {
 		int numberVehicles = vehicles.length;
 		
 		try {
-			OpenOption CREATE = null;
+			
 			OutputStream output = new BufferedOutputStream(Files.newOutputStream(file, CREATE));
 			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output));
 			writer.write(Integer.toString(numberVehicles));
