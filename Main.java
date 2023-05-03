@@ -1,5 +1,7 @@
 import static java.nio.file.StandardOpenOption.CREATE;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -21,11 +23,47 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
-public class Main {
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Main extends JFrame implements ActionListener {
+	
+	private JLabel vehicleLabel;
+	private JLabel pickupDateDayLabel;
+	private JLabel pickupDateMonthLabel;
+	private JLabel pickupDateYearLabel;
+	private JLabel rentalDurationLabel;
+	private JLabel emptyLabel;
+	//private JComboBox<Vehicle> vehicleComboBox;
+	private JLabel pickUpDateLabel;
+	//private JComboBox<Integer> dayComboBox;
+	//private JComboBox<String> monthComboBox;
+	//private JComboBox<Integer> yearComboBox;
+	//private JComboBox<Integer> durationComboBox;
+	//private JButton createButton;
+	
+	public Main() {
+		super("Car Rentals");
+	}
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public static void main(String args[]) {
+	      final int FRAME_WIDTH = 800;
+	      final int FRAME_HEIGHT = 300;
+	      Main rentalProgram = new Main();
+	      rentalProgram.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+	      rentalProgram.setVisible(true);		
+	}
 
 	//private static final OpenOption CREATE = null;
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		int selection = 0;
 		Vehicle vehicles[] = null;
@@ -80,7 +118,7 @@ public class Main {
 		
 		System.out.println(rental.getDescription());
 
-	}
+	}*/
 	
 	public static Vehicle[] createVehicles() {
 		
@@ -227,6 +265,8 @@ public class Main {
 		}
 		return date;
 	}
+
+	
 					
 }
 
