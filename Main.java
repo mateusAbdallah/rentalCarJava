@@ -1,5 +1,7 @@
 import static java.nio.file.StandardOpenOption.CREATE;
 
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedInputStream;
@@ -23,6 +25,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -34,16 +38,65 @@ public class Main extends JFrame implements ActionListener {
 	private JLabel pickupDateYearLabel;
 	private JLabel rentalDurationLabel;
 	private JLabel emptyLabel;
-	//private JComboBox<Vehicle> vehicleComboBox;
+	private JComboBox<Vehicle> vehicleComboBox;
 	private JLabel pickUpDateLabel;
-	//private JComboBox<Integer> dayComboBox;
-	//private JComboBox<String> monthComboBox;
-	//private JComboBox<Integer> yearComboBox;
-	//private JComboBox<Integer> durationComboBox;
-	//private JButton createButton;
+	private JComboBox<Integer> dayComboBox;
+	private JComboBox<String> monthComboBox;
+	private JComboBox<Integer> yearComboBox;
+	private JComboBox<Integer> durationComboBox;
+	private JButton createButton;
 	
 	public Main() {
 		super("Car Rentals");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new GridLayout(0, 2));
+		vehicleLabel = new JLabel("Select a vehicle");
+		pickupDateDayLabel = new JLabel("Selec a pick up date - day");
+		pickupDateMonthLabel = new JLabel("Selec a pick up date - month");
+		pickupDateYearLabel = new JLabel("Selec a pick up date - year");
+		rentalDurationLabel = new JLabel("Select a rental duration (days)");
+		emptyLabel = new JLabel("");
+		Vehicle[] vehicles = loadVehicles("NewVehicles.txt");
+		vehicleComboBox = new JComboBox<Vehicle>();
+	    for(int i = 0; i < vehicles.length; i++) {
+	    	vehicleComboBox.addItem(vehicles[i]);
+	    }
+	    dayComboBox = new JComboBox<Integer>();
+	    for(int i = 1; i <= 31; i++) {
+	    	dayComboBox.addItem(i);
+	    }
+	    monthComboBox = new JComboBox<String>();
+	    String[] months = {"January", "February", "March", "April", "May", "June", "July",
+	    		"August", "September", "October", "November", "Dezember" };
+	    for(String month: months) {
+	    	monthComboBox.addItem(month);
+	    }
+	    yearComboBox = new JComboBox<Integer>();
+	    for(int i = 2023; i <= 2033; i++) {
+	    	yearComboBox.addItem(i);
+	    }
+	    durationComboBox = new JComboBox<Integer>();
+	    for(int i = 1; i <= 100; i++) {
+	    	durationComboBox.addItem(i);
+	    }
+	    
+	    createButton = new JButton("Create rental");
+	    createButton.addActionListener(this);
+	    
+	    // add all the components
+	    add(vehicleLabel);
+	    add(vehicleComboBox);
+	    add(pickupDateDayLabel);
+	    add(dayComboBox);
+	    add(pickupDateMonthLabel);
+	    add(monthComboBox);
+	    add(pickupDateYearLabel);
+	    add(yearComboBox);
+	    add(rentalDurationLabel);
+	    add(durationComboBox);
+	    add(emptyLabel);
+	    add(createButton);
+
 	}
 	
 	
@@ -232,7 +285,7 @@ public class Main extends JFrame implements ActionListener {
 		}
 		
 		catch(Exception e) {
-			System.out.println("Messagee"+e);
+			System.out.println("Message: "+e);
 		}
 					
 		

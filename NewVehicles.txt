@@ -1,5 +1,13 @@
-1
+3
+Car
+Toyota Yaris
+50
+COMPACT
 Truck
-ford range
-99.99
-4000.0
+Ford F150
+120 
+8500
+Car
+BMW 750i
+199
+PREMIUM
