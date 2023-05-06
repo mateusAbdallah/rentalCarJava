@@ -25,5 +25,9 @@ public class Car extends Vehicle {
 		return size + " " + super.getDescription();
 	}
 	
+	public String toString() {
+		return getDescription();
+	}
+	
 
 }

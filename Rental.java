@@ -23,4 +23,8 @@ public class Rental {
 				"\nRental rate: $" + calculateTotal();
 		return result;
 	}
+	
+	public String toString() {
+		return getDescription();
+	}
 }

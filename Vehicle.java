@@ -30,6 +30,10 @@ public abstract class Vehicle {
 		return model + " - Daily rate: $" + rate; 
 	}
 	
+	public String toString() {
+		return getDescription();
+	}
+	
 	
 	
 }

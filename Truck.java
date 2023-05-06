@@ -21,5 +21,7 @@ public class Truck extends Vehicle {
 		return cargoCapacity;
 	}
 
-		
+	public String toString() {
+		return getDescription();
+	}
 }
