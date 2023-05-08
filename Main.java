@@ -53,9 +53,9 @@ public class Main extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(0, 2));
 		vehicleLabel = new JLabel("Select a vehicle");
-		pickupDateDayLabel = new JLabel("Selec a pick up date - day");
-		pickupDateMonthLabel = new JLabel("Selec a pick up date - month");
-		pickupDateYearLabel = new JLabel("Selec a pick up date - year");
+		pickupDateDayLabel = new JLabel("Select a pick up date - day");
+		pickupDateMonthLabel = new JLabel("Select a pick up date - month");
+		pickupDateYearLabel = new JLabel("Select a pick up date - year");
 		rentalDurationLabel = new JLabel("Select a rental duration (days)");
 		emptyLabel = new JLabel("");
 		Vehicle[] vehicles = loadVehicles("NewVehicles.txt");
