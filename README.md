@@ -8,3 +8,7 @@
 - [x] Create a frame with labels, comboBoxes and buttons
   - [x] Set information into the comboBoxes
   - [x] Add event listener in the button
+
+#
+
+![image](https://user-images.githubusercontent.com/92052001/236733396-5fa4f026-1a8b-4319-87f5-357ac995d3e7.png)
