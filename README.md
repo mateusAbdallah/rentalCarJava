@@ -5,4 +5,6 @@
 
 - [x] Create Vehicle class (super class)
 - [x] Create Car and Truck class (child class)
-- [x] Create a frame 
+- [x] Create a frame with labels, comboBoxes and buttons
+  - [x] Set information into the comboBoxes
+- [x] Add event listener in the button
